@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Head from "next/head";
+import { CheckCircle, Users, Sparkles, Clock } from "lucide-react";
 
 export default function Home() {
   return (
@@ -22,8 +23,36 @@ export default function Home() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="w-full max-w-4xl text-center py-16"
+          className="w-full max-w-4xl text-center py-16 relative"
         >
+          {/* Wavy SVG background */}
+          <div className="absolute inset-0 -z-10">
+            <svg
+              viewBox="0 0 1440 320"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-full h-full"
+            >
+              <path
+                fill="url(#hero-gradient)"
+                fillOpacity="1"
+                d="M0,160L60,170.7C120,181,240,203,360,197.3C480,192,600,160,720,133.3C840,107,960,85,1080,101.3C1200,117,1320,171,1380,197.3L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+              />
+              <defs>
+                <linearGradient
+                  id="hero-gradient"
+                  x1="0"
+                  y1="0"
+                  x2="1440"
+                  y2="320"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stopColor="#60a5fa" />
+                  <stop offset="1" stopColor="#10b981" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
           <div className="w-full flex flex-col items-center mb-8">
             <div className="relative w-full h-64 md:h-96 rounded-xl overflow-hidden shadow-lg mb-6 bg-gradient-to-br from-primary/20 to-accent/30">
               {/* Hero Image Placeholder - replace src with your image */}
@@ -37,7 +66,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-primary">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-primary drop-shadow-lg">
             Designed & Built by <span className="text-accent">Parwan</span>
           </h1>
           <p className="text-lg md:text-2xl mb-8 text-secondary-foreground">
@@ -62,11 +91,95 @@ export default function Home() {
           </div>
         </motion.section>
 
-        {/* Service Areas */}
+        {/* Why Choose Us Section */}
         <motion.section
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
+          className="w-full max-w-5xl py-12 mx-auto"
+        >
+          <h2 className="text-3xl font-bold text-center mb-8 text-primary">
+            Why Choose Parwan?
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="flex flex-col items-center text-center p-6 bg-muted rounded-xl shadow">
+              <Sparkles className="w-10 h-10 text-accent mb-2" />
+              <h3 className="font-semibold text-lg mb-1">Creative Solutions</h3>
+              <p className="text-muted-foreground">
+                We bring innovative ideas to every project, ensuring your space
+                is unique and functional.
+              </p>
+            </div>
+            <div className="flex flex-col items-center text-center p-6 bg-muted rounded-xl shadow">
+              <Users className="w-10 h-10 text-accent mb-2" />
+              <h3 className="font-semibold text-lg mb-1">Client-Focused</h3>
+              <p className="text-muted-foreground">
+                We work closely with you, tailoring every detail to your needs
+                and vision.
+              </p>
+            </div>
+            <div className="flex flex-col items-center text-center p-6 bg-muted rounded-xl shadow">
+              <CheckCircle className="w-10 h-10 text-accent mb-2" />
+              <h3 className="font-semibold text-lg mb-1">Quality & Trust</h3>
+              <p className="text-muted-foreground">
+                Our reputation is built on word-of-mouth and a commitment to
+                lasting quality.
+              </p>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* How We Work Timeline Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.15 }}
+          className="w-full max-w-4xl py-12 mx-auto"
+        >
+          <h2 className="text-3xl font-bold text-center mb-8 text-accent">
+            How We Work
+          </h2>
+          <ol className="relative border-l-4 border-primary/30 ml-4">
+            <li className="mb-10 ml-6">
+              <span className="absolute flex items-center justify-center w-8 h-8 bg-primary rounded-full -left-4 ring-4 ring-background">
+                <Sparkles className="w-5 h-5 text-white" />
+              </span>
+              <h4 className="font-semibold text-lg mb-1">
+                Consultation & Vision
+              </h4>
+              <p className="text-muted-foreground">
+                We start with a detailed consultation to understand your goals
+                and ideas.
+              </p>
+            </li>
+            <li className="mb-10 ml-6">
+              <span className="absolute flex items-center justify-center w-8 h-8 bg-accent rounded-full -left-4 ring-4 ring-background">
+                <Users className="w-5 h-5 text-white" />
+              </span>
+              <h4 className="font-semibold text-lg mb-1">Design & Planning</h4>
+              <p className="text-muted-foreground">
+                Our team creates a tailored design and plan, keeping you
+                involved at every step.
+              </p>
+            </li>
+            <li className="ml-6">
+              <span className="absolute flex items-center justify-center w-8 h-8 bg-primary rounded-full -left-4 ring-4 ring-background">
+                <Clock className="w-5 h-5 text-white" />
+              </span>
+              <h4 className="font-semibold text-lg mb-1">Build & Deliver</h4>
+              <p className="text-muted-foreground">
+                We execute the project with care and precision, delivering a
+                space you'll love for years.
+              </p>
+            </li>
+          </ol>
+        </motion.section>
+
+        {/* Service Areas */}
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
           className="w-full max-w-3xl text-center py-8"
         >
           <h2 className="text-2xl font-semibold mb-2 text-primary">
@@ -85,7 +198,7 @@ export default function Home() {
           id="about"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
           className="w-full max-w-3xl text-center py-8"
         >
           <h2 className="text-2xl font-semibold mb-2 text-accent">
@@ -156,8 +269,8 @@ export default function Home() {
           <div className="flex flex-col md:flex-row gap-6 justify-center">
             <div className="bg-muted rounded-lg p-6 shadow text-left flex-1">
               <p className="mb-2 text-lg">
-                “Parwan Design and Build transformed our home beyond our
-                expectations. Highly recommended!”
+                "Parwan Design and Build transformed our home beyond our
+                expectations. Highly recommended!"
               </p>
               <span className="block text-sm text-primary font-semibold">
                 - JAG DHILLON -
@@ -165,7 +278,7 @@ export default function Home() {
             </div>
             <div className="bg-muted rounded-lg p-6 shadow text-left flex-1">
               <p className="mb-2 text-lg">
-                “Professional, creative, and reliable. We love our new space!”
+                "Professional, creative, and reliable. We love our new space!"
               </p>
               <span className="block text-sm text-primary font-semibold">
                 - S. KUMAR -
