@@ -84,7 +84,7 @@ export default function ContactPage() {
           <h1 className="text-3xl font-bold mb-2 text-center">Contact Us</h1>
           <p className="text-muted-foreground mb-6 text-center">
             Have a question or want to discuss your project? Fill out the form
-            below and we'll get back to you soon.
+            below and we&apos;ll get back to you soon.
           </p>
           {Object.keys(validationErrors).length > 0 && (
             <div className="mb-4">

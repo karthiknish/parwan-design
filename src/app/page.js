@@ -73,10 +73,10 @@ export default function Home() {
             Serving Greater London & Beyond
           </h2>
           <p className="text-base md:text-lg text-muted-foreground">
-            We've worked across Harrow, Rickmansworth, Watford, Ickenham,
-            Uxbridge, and Hayes, but we're happy to extend our knowledge of the
-            surrounding areas, so don't feel excluded if you live further
-            afield.
+            We&apos;ve worked across Harrow, Rickmansworth, Watford, Ickenham,
+            Uxbridge, and Hayes, but we&apos;re happy to extend our knowledge of
+            the surrounding areas, so don&apos;t feel excluded if you live
+            further afield.
           </p>
         </motion.section>
 
