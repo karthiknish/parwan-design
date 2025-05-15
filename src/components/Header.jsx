@@ -19,7 +19,7 @@ export default function Header() {
             <Link href="/">Home</Link>
           </Button>
           <Button variant="ghost" asChild>
-            <a href="/about">About</a>
+            <Link href="/about">About</Link>
           </Button>
           <Button variant="ghost" asChild>
             <a href="#projects">Projects</a>
@@ -48,7 +48,7 @@ export default function Header() {
             <Link href="/">Home</Link>
           </Button>
           <Button variant="ghost" asChild onClick={() => setOpen(false)}>
-            <a href="/about">About</a>
+            <Link href="/about">About</Link>
           </Button>
           <Button variant="ghost" asChild onClick={() => setOpen(false)}>
             <a href="#projects">Projects</a>

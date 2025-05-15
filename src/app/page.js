@@ -5,7 +5,15 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Head from "next/head";
-import { CheckCircle, Users, Sparkles, Clock } from "lucide-react";
+import {
+  CheckCircle,
+  Users,
+  Sparkles,
+  Clock,
+  MapPin,
+  MessageSquare,
+  Star,
+} from "lucide-react";
 
 export default function Home() {
   return (
@@ -180,17 +188,28 @@ export default function Home() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="w-full max-w-3xl text-center py-8"
+          className="w-full px-4 md:px-8 py-12 bg-primary/5"
         >
-          <h2 className="text-2xl font-semibold mb-2 text-primary">
-            Serving Greater London & Beyond
-          </h2>
-          <p className="text-base md:text-lg text-muted-foreground">
-            We&apos;ve worked across Harrow, Rickmansworth, Watford, Ickenham,
-            Uxbridge, and Hayes, but we&apos;re happy to extend our knowledge of
-            the surrounding areas, so don&apos;t feel excluded if you live
-            further afield.
-          </p>
+          <div className="max-w-4xl mx-auto text-center">
+            <MapPin className="w-12 h-12 text-accent mx-auto mb-4" />
+            <h2 className="text-3xl font-bold mb-6 text-primary">
+              Serving Greater London & Beyond
+            </h2>
+            <p className="text-lg md:text-xl text-foreground mb-8 leading-relaxed">
+              We&apos;ve worked across Harrow, Rickmansworth, Watford, Ickenham,
+              Uxbridge, and Hayes, but we&apos;re happy to extend our knowledge
+              of the surrounding areas, so don&apos;t feel excluded if you live
+              further afield. Our commitment is to bring quality design and
+              build services to a wide range of locations.
+            </p>
+            <Button
+              variant="outline"
+              asChild
+              className="border-accent text-accent hover:bg-accent/10"
+            >
+              <Link href="/contact">Discuss Your Location</Link>
+            </Button>
+          </div>
         </motion.section>
 
         {/* About Section */}
@@ -199,15 +218,16 @@ export default function Home() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="w-full max-w-3xl text-center py-8"
+          className="w-full max-w-3xl text-center py-12 mx-auto px-4 md:px-0"
         >
-          <h2 className="text-2xl font-semibold mb-2 text-accent">
+          <h2 className="text-3xl font-semibold mb-4 text-accent">
             Why move, when you can improve?
           </h2>
-          <p className="text-base md:text-lg">
+          <p className="text-lg text-foreground leading-relaxed">
             We work closely with our clients to deliver to their exact
             specifications. Our business is built almost exclusively on
-            word-of-mouth recommendations.
+            word-of-mouth recommendations. We pride ourselves on transparency
+            and partnership.
           </p>
         </motion.section>
 
@@ -217,42 +237,44 @@ export default function Home() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
-          className="w-full max-w-5xl py-8"
+          className="w-full px-4 md:px-8 py-12 bg-muted"
         >
-          <h3 className="text-xl font-semibold mb-6 text-center text-primary">
-            Some of our latest projects
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[1, 2, 3].map((i) => (
-              <div
-                key={i}
-                className="bg-card rounded-lg shadow p-6 flex flex-col items-center border border-accent/30"
-              >
-                <div className="relative w-full h-40 rounded mb-4 overflow-hidden bg-gradient-to-br from-primary/20 to-accent/30">
-                  {/* Project Image Placeholder - replace src with your image */}
-                  <Image
-                    src={`/project-placeholder-${i}.jpg`}
-                    alt={`Project Detail ${i}`}
-                    fill
-                    style={{ objectFit: "cover" }}
-                    className="object-cover"
-                  />
-                </div>
-                <h4 className="font-bold mb-2 text-accent">
-                  Project Detail {i}
-                </h4>
-                <p className="text-sm text-muted-foreground mb-4">
-                  A brief description of the project goes here.
-                </p>
-                <Button
-                  size="sm"
-                  variant="secondary"
-                  className="bg-secondary text-secondary-foreground hover:bg-secondary/80"
+          <div className="max-w-5xl mx-auto">
+            <h3 className="text-3xl font-bold mb-10 text-center text-primary">
+              Some of Our Latest Projects
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[1, 2, 3].map((i) => (
+                <div
+                  key={i}
+                  className="bg-card rounded-xl shadow-xl p-6 flex flex-col items-center border border-transparent hover:border-accent transition-all duration-300 transform hover:-translate-y-1"
                 >
-                  View Project
-                </Button>
-              </div>
-            ))}
+                  <div className="relative w-full h-56 rounded-lg mb-5 overflow-hidden shadow-md">
+                    <Image
+                      src={`/project-placeholder-${i}.jpg`}
+                      alt={`Project Detail ${i}`}
+                      fill
+                      style={{ objectFit: "cover" }}
+                      className="object-cover"
+                    />
+                  </div>
+                  <h4 className="font-bold text-xl mb-2 text-accent">
+                    Project Showcase {i}
+                  </h4>
+                  <p className="text-sm text-muted-foreground mb-4 text-center">
+                    A brief description of this stunning project, highlighting
+                    key features and transformations.
+                  </p>
+                  <Button
+                    size="sm"
+                    variant="secondary"
+                    className="bg-secondary text-secondary-foreground hover:bg-secondary/80 mt-auto"
+                  >
+                    View Project
+                  </Button>
+                </div>
+              ))}
+            </div>
           </div>
         </motion.section>
 
@@ -261,29 +283,48 @@ export default function Home() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          className="w-full max-w-4xl py-8 text-center"
+          className="w-full px-4 md:px-8 py-16"
         >
-          <h3 className="text-xl font-semibold mb-6 text-accent">
-            What Our Clients Say
-          </h3>
-          <div className="flex flex-col md:flex-row gap-6 justify-center">
-            <div className="bg-muted rounded-lg p-6 shadow text-left flex-1">
-              <p className="mb-2 text-lg">
-                &quot;Parwan Design and Build transformed our home beyond our
-                expectations. Highly recommended!&quot;
-              </p>
-              <span className="block text-sm text-primary font-semibold">
-                - JAG DHILLON -
-              </span>
-            </div>
-            <div className="bg-muted rounded-lg p-6 shadow text-left flex-1">
-              <p className="mb-2 text-lg">
-                &quot;Professional, creative, and reliable. We love our new
-                space!&quot;
-              </p>
-              <span className="block text-sm text-primary font-semibold">
-                - S. KUMAR -
-              </span>
+          <div className="max-w-4xl mx-auto text-center">
+            <MessageSquare className="w-12 h-12 text-accent mx-auto mb-4" />
+            <h3 className="text-3xl font-bold mb-10 text-primary">
+              What Our Clients Say
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="bg-card rounded-xl p-8 shadow-xl border border-transparent hover:border-primary transition-all duration-300">
+                <div className="flex items-center mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-5 h-5 text-yellow-400 fill-yellow-400"
+                    />
+                  ))}
+                </div>
+                <p className="mb-4 text-lg text-foreground italic">
+                  “Parwan Design and Build transformed our home beyond our
+                  expectations. Highly recommended!”
+                </p>
+                <span className="block text-md text-accent font-semibold">
+                  - JAG DHILLON -
+                </span>
+              </div>
+              <div className="bg-card rounded-xl p-8 shadow-xl border border-transparent hover:border-primary transition-all duration-300">
+                <div className="flex items-center mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-5 h-5 text-yellow-400 fill-yellow-400"
+                    />
+                  ))}
+                </div>
+                <p className="mb-4 text-lg text-foreground italic">
+                  “Professional, creative, and reliable. We love our new space!
+                  The attention to detail was incredible.”
+                </p>
+                <span className="block text-md text-accent font-semibold">
+                  - S. KUMAR -
+                </span>
+              </div>
             </div>
           </div>
         </motion.section>
@@ -294,32 +335,40 @@ export default function Home() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.6 }}
-          className="w-full max-w-5xl py-8 text-center"
+          className="w-full px-4 md:px-8 py-12 bg-primary/5"
         >
-          <h3 className="text-xl font-semibold mb-6 text-primary">Galleries</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-            {["interior", "kitchen", "exterior"].map((type, i) => (
-              <div
-                key={type}
-                className="relative w-full h-40 rounded-lg overflow-hidden bg-gradient-to-br from-accent/10 to-primary/10"
-              >
-                {/* Gallery Image Placeholder - replace src with your image */}
-                <Image
-                  src={`/${type}-gallery-placeholder.jpg`}
-                  alt={`${
-                    type.charAt(0).toUpperCase() + type.slice(1)
-                  } Gallery`}
-                  fill
-                  style={{ objectFit: "cover" }}
-                  className="object-cover"
-                />
-              </div>
-            ))}
+          <div className="max-w-5xl mx-auto text-center">
+            <h3 className="text-3xl font-bold mb-10 text-primary">
+              Explore Our Galleries
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-6">
+              {["interior", "kitchen", "exterior"].map((type, i) => (
+                <div
+                  key={type}
+                  className="relative w-full h-64 rounded-xl overflow-hidden shadow-lg group transform hover:scale-105 transition-transform duration-300"
+                >
+                  <Image
+                    src={`/${type}-gallery-placeholder.jpg`}
+                    alt={`${
+                      type.charAt(0).toUpperCase() + type.slice(1)
+                    } Gallery`}
+                    fill
+                    style={{ objectFit: "cover" }}
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-300 flex items-center justify-center">
+                    <h4 className="text-2xl font-bold text-white capitalize tracking-wider">
+                      {type}
+                    </h4>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="text-lg text-muted-foreground">
+              Browse through our collections of Interiors, Loft conversions,
+              Commercial spaces, Kitchens, Bathrooms, and Exteriors.
+            </p>
           </div>
-          <p className="text-base text-muted-foreground">
-            Interiors, Loft conversions, Commercial, Kitchens, Bathrooms,
-            Exteriors
-          </p>
         </motion.section>
 
         {/* Call to Action */}
@@ -328,19 +377,25 @@ export default function Home() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.7 }}
-          className="w-full max-w-2xl text-center py-12"
+          className="w-full px-4 md:px-8 py-16 bg-gradient-to-r from-accent to-primary"
         >
-          <h3 className="text-2xl font-semibold mb-4 text-accent">
-            Good design. Built to last.
-          </h3>
-          <Button
-            size="lg"
-            variant="default"
-            asChild
-            className="bg-primary text-primary-foreground hover:bg-primary/90"
-          >
-            <Link href="/contact">Get in Touch</Link>
-          </Button>
+          <div className="max-w-3xl mx-auto text-center">
+            <h3 className="text-4xl font-bold mb-6 text-white drop-shadow-md">
+              Good design. Built to last.
+            </h3>
+            <p className="text-xl text-white/90 mb-8 leading-relaxed">
+              Ready to start your dream project? Let&apos;s build something
+              amazing together.
+            </p>
+            <Button
+              size="lg"
+              variant="default"
+              asChild
+              className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-6"
+            >
+              <Link href="/contact">Get in Touch Today</Link>
+            </Button>
+          </div>
         </motion.section>
       </div>
     </>

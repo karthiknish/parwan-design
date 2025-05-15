@@ -74,71 +74,148 @@ export default function ContactPage() {
           content="Contact Parwan Design and Build for renovations, modernising, and extending your living spaces."
         />
       </Head>
-      <div className="flex flex-col items-center min-h-screen w-full bg-background text-foreground pt-16">
-        <motion.div
+      <div className="flex flex-col min-h-screen w-full bg-background text-foreground pt-16">
+        {/* Contact Form and Info Section */}
+        <motion.section
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="w-full max-w-lg bg-card rounded-lg shadow p-8"
+          className="w-full px-4 md:px-8 py-8"
         >
-          <h1 className="text-3xl font-bold mb-2 text-center">Contact Us</h1>
-          <p className="text-muted-foreground mb-6 text-center">
-            Have a question or want to discuss your project? Fill out the form
-            below and we&apos;ll get back to you soon.
-          </p>
-          {Object.keys(validationErrors).length > 0 && (
-            <div className="mb-4">
-              <ul className="text-red-600 text-sm list-disc pl-5">
-                {Object.entries(validationErrors).map(([field, msg]) => (
-                  <li key={field}>{msg}</li>
-                ))}
-              </ul>
+          <div className="max-w-3xl mx-auto">
+            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center text-primary">
+              Contact Us
+            </h1>
+            <p className="text-muted-foreground mb-6 text-center">
+              Have a question or want to discuss your project? Fill out the form
+              below and we&apos;ll get back to you soon.
+            </p>
+
+            <div className="my-6 py-6 border-y border-muted text-center">
+              <h2 className="text-xl font-semibold mb-3 text-accent">
+                Direct Contact Information
+              </h2>
+              <div className="space-y-1">
+                <p>
+                  <strong>Email:</strong>{" "}
+                  <a
+                    href="mailto:info@parwandesign.com"
+                    className="text-primary hover:underline"
+                  >
+                    info@parwandesign.com
+                  </a>
+                </p>
+                <p>
+                  <strong>Phone:</strong>{" "}
+                  <a
+                    href="tel:+441234567890"
+                    className="text-primary hover:underline"
+                  >
+                    +44 123 456 7890
+                  </a>
+                </p>
+              </div>
+              <p className="text-sm text-muted-foreground mt-3">
+                We aim to respond to all inquiries within 1-2 business days.
+              </p>
             </div>
-          )}
-          <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-            <Input
-              type="text"
-              placeholder="Your Name"
-              required
-              value={form.name}
-              onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-              aria-invalid={!!validationErrors.name}
-            />
-            <Input
-              type="email"
-              placeholder="Your Email"
-              required
-              value={form.email}
-              onChange={(e) =>
-                setForm((f) => ({ ...f, email: e.target.value }))
-              }
-              aria-invalid={!!validationErrors.email}
-            />
-            <Input
-              type="tel"
-              placeholder="Your Phone Number"
-              value={form.phone}
-              onChange={(e) =>
-                setForm((f) => ({ ...f, phone: e.target.value }))
-              }
-              aria-invalid={!!validationErrors.phone}
-            />
-            <Textarea
-              placeholder="Your Message"
-              rows={5}
-              required
-              value={form.message}
-              onChange={(e) =>
-                setForm((f) => ({ ...f, message: e.target.value }))
-              }
-              aria-invalid={!!validationErrors.message}
-            />
-            <Button type="submit" className="mt-2" disabled={loading}>
-              {loading ? "Sending..." : "Send Message"}
-            </Button>
-          </form>
-          {error && <p className="text-red-600 mt-4 text-center">{error}</p>}
-        </motion.div>
+
+            {Object.keys(validationErrors).length > 0 && (
+              <div className="mb-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-md">
+                <ul className="list-disc pl-5">
+                  {Object.entries(validationErrors).map(([field, msg]) => (
+                    <li key={field}>{msg}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <form
+              className="flex flex-col gap-4 bg-card p-6 rounded-lg shadow-md"
+              onSubmit={handleSubmit}
+            >
+              <Input
+                type="text"
+                placeholder="Your Name"
+                required
+                value={form.name}
+                onChange={(e) =>
+                  setForm((f) => ({ ...f, name: e.target.value }))
+                }
+                aria-invalid={!!validationErrors.name}
+              />
+              <Input
+                type="email"
+                placeholder="Your Email"
+                required
+                value={form.email}
+                onChange={(e) =>
+                  setForm((f) => ({ ...f, email: e.target.value }))
+                }
+                aria-invalid={!!validationErrors.email}
+              />
+              <Input
+                type="tel"
+                placeholder="Your Phone Number"
+                value={form.phone}
+                onChange={(e) =>
+                  setForm((f) => ({ ...f, phone: e.target.value }))
+                }
+                aria-invalid={!!validationErrors.phone}
+              />
+              <Textarea
+                placeholder="Your Message"
+                rows={5}
+                required
+                value={form.message}
+                onChange={(e) =>
+                  setForm((f) => ({ ...f, message: e.target.value }))
+                }
+                aria-invalid={!!validationErrors.message}
+              />
+              <Button type="submit" className="mt-2" disabled={loading}>
+                {loading ? "Sending..." : "Send Message"}
+              </Button>
+            </form>
+            {error && (
+              <p className="text-red-600 mt-4 text-center bg-red-100 border border-red-400 px-4 py-3 rounded-md">
+                {error}
+              </p>
+            )}
+          </div>
+        </motion.section>
+
+        {/* Location Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="w-full px-4 md:px-8 py-8 bg-muted"
+        >
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-accent">
+              Our Location
+            </h2>
+            <div className="w-full h-72 md:h-96 bg-gray-300 rounded-lg overflow-hidden mb-4 shadow-md">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2481.995059264415!2d-0.1277582842266497!3d51.50735097963576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604ce3878d7c9%3A0x1a2f4ff87c1b9c3a!2sLondon%2C%20UK!5e0!3m2!1sen!2sus!4v1618931989871!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                title="Our Location Map"
+              ></iframe>
+            </div>
+            <p className="text-foreground">
+              Parwan Design and Build
+              <br />
+              123 Example Street
+              <br />
+              London, AB1 2CD, UK
+            </p>
+          </div>
+        </motion.section>
       </div>
     </>
   );
