@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import Head from "next/head";
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -65,67 +66,80 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="flex flex-col items-center min-h-screen w-full bg-background text-foreground pt-16">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        className="w-full max-w-lg bg-card rounded-lg shadow p-8"
-      >
-        <h1 className="text-3xl font-bold mb-2 text-center">Contact Us</h1>
-        <p className="text-muted-foreground mb-6 text-center">
-          Have a question or want to discuss your project? Fill out the form
-          below and we'll get back to you soon.
-        </p>
-        {Object.keys(validationErrors).length > 0 && (
-          <div className="mb-4">
-            <ul className="text-red-600 text-sm list-disc pl-5">
-              {Object.entries(validationErrors).map(([field, msg]) => (
-                <li key={field}>{msg}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-        <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-          <Input
-            type="text"
-            placeholder="Your Name"
-            required
-            value={form.name}
-            onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-            aria-invalid={!!validationErrors.name}
-          />
-          <Input
-            type="email"
-            placeholder="Your Email"
-            required
-            value={form.email}
-            onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
-            aria-invalid={!!validationErrors.email}
-          />
-          <Input
-            type="tel"
-            placeholder="Your Phone Number"
-            value={form.phone}
-            onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
-            aria-invalid={!!validationErrors.phone}
-          />
-          <Textarea
-            placeholder="Your Message"
-            rows={5}
-            required
-            value={form.message}
-            onChange={(e) =>
-              setForm((f) => ({ ...f, message: e.target.value }))
-            }
-            aria-invalid={!!validationErrors.message}
-          />
-          <Button type="submit" className="mt-2" disabled={loading}>
-            {loading ? "Sending..." : "Send Message"}
-          </Button>
-        </form>
-        {error && <p className="text-red-600 mt-4 text-center">{error}</p>}
-      </motion.div>
-    </div>
+    <>
+      <Head>
+        <title>Contact | Parwan Design and Build</title>
+        <meta
+          name="description"
+          content="Contact Parwan Design and Build for renovations, modernising, and extending your living spaces."
+        />
+      </Head>
+      <div className="flex flex-col items-center min-h-screen w-full bg-background text-foreground pt-16">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="w-full max-w-lg bg-card rounded-lg shadow p-8"
+        >
+          <h1 className="text-3xl font-bold mb-2 text-center">Contact Us</h1>
+          <p className="text-muted-foreground mb-6 text-center">
+            Have a question or want to discuss your project? Fill out the form
+            below and we'll get back to you soon.
+          </p>
+          {Object.keys(validationErrors).length > 0 && (
+            <div className="mb-4">
+              <ul className="text-red-600 text-sm list-disc pl-5">
+                {Object.entries(validationErrors).map(([field, msg]) => (
+                  <li key={field}>{msg}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+            <Input
+              type="text"
+              placeholder="Your Name"
+              required
+              value={form.name}
+              onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
+              aria-invalid={!!validationErrors.name}
+            />
+            <Input
+              type="email"
+              placeholder="Your Email"
+              required
+              value={form.email}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, email: e.target.value }))
+              }
+              aria-invalid={!!validationErrors.email}
+            />
+            <Input
+              type="tel"
+              placeholder="Your Phone Number"
+              value={form.phone}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, phone: e.target.value }))
+              }
+              aria-invalid={!!validationErrors.phone}
+            />
+            <Textarea
+              placeholder="Your Message"
+              rows={5}
+              required
+              value={form.message}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, message: e.target.value }))
+              }
+              aria-invalid={!!validationErrors.message}
+            />
+            <Button type="submit" className="mt-2" disabled={loading}>
+              {loading ? "Sending..." : "Send Message"}
+            </Button>
+          </form>
+          {error && <p className="text-red-600 mt-4 text-center">{error}</p>}
+        </motion.div>
+      </div>
+    </>
   );
 }
