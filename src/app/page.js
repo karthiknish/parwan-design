@@ -169,7 +169,7 @@ export default function Home() {
               <h4 className="font-semibold text-lg mb-1">Build & Deliver</h4>
               <p className="text-muted-foreground">
                 We execute the project with care and precision, delivering a
-                space you'll love for years.
+                space you&apos;ll love for years.
               </p>
             </li>
           </ol>
@@ -269,8 +269,8 @@ export default function Home() {
           <div className="flex flex-col md:flex-row gap-6 justify-center">
             <div className="bg-muted rounded-lg p-6 shadow text-left flex-1">
               <p className="mb-2 text-lg">
-                "Parwan Design and Build transformed our home beyond our
-                expectations. Highly recommended!"
+                &quot;Parwan Design and Build transformed our home beyond our
+                expectations. Highly recommended!&quot;
               </p>
               <span className="block text-sm text-primary font-semibold">
                 - JAG DHILLON -
@@ -278,7 +278,8 @@ export default function Home() {
             </div>
             <div className="bg-muted rounded-lg p-6 shadow text-left flex-1">
               <p className="mb-2 text-lg">
-                "Professional, creative, and reliable. We love our new space!"
+                &quot;Professional, creative, and reliable. We love our new
+                space!&quot;
               </p>
               <span className="block text-sm text-primary font-semibold">
                 - S. KUMAR -
