@@ -36,11 +36,11 @@ A modern, colorful website for Parwan Design and Build, built with Next.js, Tail
    - Publish the content type.
 
 4. **Run the development server:**
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
+```bash
+npm run dev
+# or
+yarn dev
+```
 
 5. **Open the site:**
    Visit [http://localhost:3000](http://localhost:3000)
