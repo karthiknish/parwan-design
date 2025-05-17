@@ -33,11 +33,11 @@ export default function TermsPage() {
                 1. Introduction
               </h2>
               <p>
-                These Terms and Conditions ("Terms") govern your use of the
-                Parwan Design and Build website and any services provided by
-                Parwan Design and Build ("we", "us", "our"). By accessing or
-                using our website or services, you agree to be bound by these
-                Terms.
+                These Terms and Conditions (&quot;Terms&quot;) govern your use
+                of the Parwan Design and Build website and any services provided
+                by Parwan Design and Build (&quot;we&quot;, &quot;us&quot;,
+                &quot;our&quot;). By accessing or using our website or services,
+                you agree to be bound by these Terms.
               </p>
             </section>
             <section>
