@@ -79,11 +79,7 @@ const galleryImages = [
     alt: "Modern staircase renovation",
     aspect: "landscape",
   },
-  {
-    src: "https://images.pexels.com/photos/1125136/pexels-photo-1125136.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    alt: "Modern staircase renovation",
-    aspect: "landscape",
-  },
+
   {
     src: "https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     alt: "Interior",

@@ -14,9 +14,9 @@ export default function Header() {
           <span className="inline-flex items-center justify-center rounded-full bg-accent/20 p-2 mr-2">
             <Sparkles className="w-6 h-6 text-accent group-hover:rotate-12 transition-transform duration-300" />
           </span>
-          <span className="font-heading text-2xl md:text-2xl font-bold tracking-tight text-primary group-hover:text-accent transition-colors duration-300">
+          <h1 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary group-hover:text-accent transition-colors duration-300 leading-none">
             Parwan Design <span className="text-accent">&amp; Build</span>
-          </span>
+          </h1>
         </Link>
         {/* Desktop nav */}
         <div className="hidden md:flex gap-1 ml-8">
