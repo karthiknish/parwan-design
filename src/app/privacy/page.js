@@ -26,21 +26,104 @@ export default function PrivacyPage() {
             Your privacy is important to Parwan Design and Build. This policy
             explains how we collect, use, and protect your information.
           </p>
-          <ul className="list-disc pl-6 text-base text-foreground">
-            <li>We only collect information you provide to us directly.</li>
-            <li>
-              Your data is used solely to respond to your inquiries and provide
-              our services.
-            </li>
-            <li>
-              We do not share your information with third parties except as
-              required by law.
-            </li>
-          </ul>
-          <p className="text-base text-muted-foreground mt-4">
-            For more details or questions about our privacy practices, please
-            contact us.
-          </p>
+          <div className="text-base text-foreground space-y-6">
+            <section>
+              <h2 className="text-2xl font-semibold mb-2 text-accent">
+                1. Information We Collect
+              </h2>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>
+                  <strong>Personal Information:</strong> We only collect
+                  information you provide to us directly, such as your name,
+                  email address, phone number, and any details you include in
+                  your inquiry or communication.
+                </li>
+                <li>
+                  <strong>Usage Data:</strong> We may collect non-personal
+                  information about how you interact with our website, such as
+                  your IP address, browser type, and pages visited, for
+                  analytics and security purposes.
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h2 className="text-2xl font-semibold mb-2 text-accent">
+                2. How We Use Your Information
+              </h2>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>To respond to your inquiries and provide our services.</li>
+                <li>To improve our website and services.</li>
+                <li>To comply with legal obligations.</li>
+              </ul>
+            </section>
+            <section>
+              <h2 className="text-2xl font-semibold mb-2 text-accent">
+                3. Data Sharing and Disclosure
+              </h2>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>
+                  We do not share your information with third parties except as
+                  required by law or to fulfill your requests (for example, if
+                  we need to coordinate with a subcontractor for your project,
+                  we will only do so with your consent).
+                </li>
+                <li>
+                  We do not sell or rent your personal information to anyone.
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h2 className="text-2xl font-semibold mb-2 text-accent">
+                4. Data Security
+              </h2>
+              <p>
+                We take reasonable measures to protect your information from
+                unauthorized access, disclosure, or loss. However, no method of
+                transmission over the Internet or electronic storage is 100%
+                secure.
+              </p>
+            </section>
+            <section>
+              <h2 className="text-2xl font-semibold mb-2 text-accent">
+                5. Your Rights
+              </h2>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>
+                  You have the right to request access to, correction of, or
+                  deletion of your personal information.
+                </li>
+                <li>
+                  To exercise these rights, please contact us using the details
+                  below.
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h2 className="text-2xl font-semibold mb-2 text-accent">
+                6. Changes to This Policy
+              </h2>
+              <p>
+                We may update this privacy policy from time to time. Any changes
+                will be posted on this page with an updated effective date.
+              </p>
+            </section>
+            <section>
+              <h2 className="text-2xl font-semibold mb-2 text-accent">
+                7. Contact Us
+              </h2>
+              <p>
+                For more details or questions about our privacy practices,
+                please contact us at{" "}
+                <a
+                  href="mailto:info@parwandesignandbuild.co.uk"
+                  className="text-primary underline"
+                >
+                  info@parwandesignandbuild.co.uk
+                </a>
+                .
+              </p>
+            </section>
+          </div>
         </motion.div>
       </div>
     </>

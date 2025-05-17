@@ -492,8 +492,8 @@ export default function Home() {
                   Exteriors
                 </h3>
                 <p className="font-body text-muted-foreground mb-4">
-                  Enhance your home's curb appeal with our exterior renovation
-                  and landscaping services.
+                  Enhance your home&apos;s curb appeal with our exterior
+                  renovation and landscaping services.
                 </p>
                 <Button variant="outline" asChild className="mt-auto">
                   <a href="/contact">Enquire about Exteriors</a>

@@ -164,7 +164,7 @@ export default function AboutPage() {
                 your project is delivered just as you imagined.
               </p>
               <span className="block font-heading text-accent mt-4">
-                "We build the property. You make it a home."
+                &quot;We build the property. You make it a home.&quot;
               </span>
             </div>
           </div>
@@ -195,7 +195,7 @@ export default function AboutPage() {
                 Our experienced specialists are happy to install your choice of
                 accessories to enhance the look you want. From ceramic tiles for
                 under-floor heating to luxury bathroom furniture, we create
-                spaces you'll love.
+                spaces you&apos;ll love.
               </p>
             </div>
           </div>
