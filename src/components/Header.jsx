@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Menu, X, Sparkles } from "lucide-react";
-
+import Image from "next/image";
 export default function Header() {
   const [open, setOpen] = useState(false);
 
@@ -11,12 +11,12 @@ export default function Header() {
     <nav className="w-full sticky top-0 z-30 bg-background/70 backdrop-blur-lg shadow-md border-b border-muted/40">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-2 md:py-3">
         <Link href="/" className="flex items-center gap-2 group">
-          <span className="inline-flex items-center justify-center rounded-full bg-accent/20 p-2 mr-2">
-            <Sparkles className="w-6 h-6 text-accent group-hover:rotate-12 transition-transform duration-300" />
-          </span>
-          <h1 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary group-hover:text-accent transition-colors duration-300 leading-none">
-            Parwan Design <span className="text-accent">&amp; Build</span>
-          </h1>
+          <Image
+            src="/logo.png"
+            alt="Parwan Design and Build"
+            width={200}
+            height={200}
+          />
         </Link>
         {/* Desktop nav */}
         <div className="hidden md:flex gap-1 ml-8">
