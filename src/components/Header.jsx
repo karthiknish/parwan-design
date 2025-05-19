@@ -54,7 +54,7 @@ export default function Header() {
             </Button>
           </Link>
         </div>
-        {/* Hamburger for mobile */}
+
         <Button
           variant="ghost"
           className="md:hidden rounded-full p-2 hover:bg-accent/10"
@@ -111,6 +111,27 @@ export default function Header() {
               Contact
             </Button>
           </Link>
+          {/* Contact info mobile */}
+          <div className="flex flex-col gap-1 mt-2 text-left">
+            <a
+              href="mailto:admin@parwandb.co.uk"
+              className="text-sm text-accent hover:underline"
+            >
+              admin@parwandb.co.uk
+            </a>
+            <a
+              href="tel:07769406432"
+              className="text-sm text-primary hover:underline"
+            >
+              07769 406432
+            </a>
+            <a
+              href="tel:07380856052"
+              className="text-sm text-primary hover:underline"
+            >
+              07380 856052
+            </a>
+          </div>
         </div>
       )}
     </nav>

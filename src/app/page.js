@@ -128,7 +128,7 @@ export default function Home() {
               animate={{ scale: [1, 1.04, 1] }}
             >
               Designed &amp; Built by{" "}
-              <span className="text-accent sshadow">Parwan</span>
+              <span className="text-accent sshadow">PARWAN</span>
             </motion.h1>
             <motion.p
               className="text-xl md:text-2xl mb-10 text-white/90 shadow-lg font-medium sshadow"
@@ -151,7 +151,14 @@ export default function Home() {
               </span>
             </motion.p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="default" className="text-lg px-8 py-4 sshadow">
+              <Button
+                variant="default"
+                className="text-lg px-8 py-4 sshadow"
+                onClick={() => {
+                  const el = document.getElementById("projects");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
                 View Portfolio
               </Button>
               <Button
@@ -304,20 +311,12 @@ export default function Home() {
             {/* Text Content */}
             <div className="flex-1 flex flex-col justify-center text-center md:text-left">
               <h2 className="text-4xl font-extrabold mb-8 text-primary tracking-tight">
-                Serving Greater London & Beyond
+                We Serve Any Part of the UK
               </h2>
               <p className="text-xl md:text-2xl text-foreground mb-10 leading-relaxed font-medium">
-                We&apos;ve worked across{" "}
-                <span className="text-accent font-bold">Harrow</span>,{" "}
-                <span className="text-primary font-bold">Rickmansworth</span>,{" "}
-                <span className="text-accent font-bold">Watford</span>,{" "}
-                <span className="text-primary font-bold">Ickenham</span>,
-                <span className="text-accent font-bold"> Uxbridge</span>, and{" "}
-                <span className="text-primary font-bold">Hayes</span>, but
-                we&apos;re happy to extend our knowledge of the surrounding
-                areas, so don&apos;t feel excluded if you live further afield.
-                Our commitment is to bring quality design and build services to
-                a wide range of locations.
+                No matter where you are in the UK, Parwan Design and Build is
+                ready to help bring your vision to life. We proudly serve
+                clients nationwide.
               </p>
               <Button
                 variant="outline"

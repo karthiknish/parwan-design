@@ -128,7 +128,7 @@ export default function ContactPage() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="w-full px-4 md:px-8 py-4"
+          className="w-full max-w-5xl mx-auto px-4 md:px-8 py-4 mt-8"
         >
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch">
@@ -207,75 +207,32 @@ export default function ContactPage() {
                   <Mail className="w-6 h-6 text-accent" /> Email
                 </h2>
                 <a
-                  href="mailto:info@parwandesign.com"
+                  href="mailto:admin@parwandb.co.uk"
                   className="text-lg text-primary hover:underline break-all"
                 >
-                  info@parwandesign.com
+                  admin@parwandb.co.uk
                 </a>
                 <h2 className="font-heading text-2xl font-bold mb-2 text-primary flex items-center gap-2 mt-6">
                   <Phone className="w-6 h-6 text-accent" /> Phone
                 </h2>
                 <a
-                  href="tel:+441234567890"
+                  href="tel:07769406432"
                   className="text-lg text-primary hover:underline"
                 >
-                  +44 123 456 7890
+                  07769 406432
                 </a>
-                <h2 className="font-heading text-2xl font-bold mb-2 text-primary flex items-center gap-2 mt-6">
-                  <MapPin className="w-6 h-6 text-accent" /> Address
-                </h2>
-                <p className="text-lg text-foreground">
-                  Parwan Design and Build
-                  <br />
-                  123 Example Street
-                  <br />
-                  London, AB1 2CD, UK
-                </p>
-
+                <a
+                  href="tel:07380856052"
+                  className="text-lg text-primary hover:underline"
+                >
+                  07380 856052
+                </a>
                 <div className="mt-6 text-center">
                   <p className="text-muted-foreground text-sm">
                     We aim to respond to all inquiries within 1-2 business days.
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* Location Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="w-full px-4 md:px-8 py-4 bg-muted"
-        >
-          <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-8 items-center">
-            <div className="flex-1 w-full h-72 md:h-96 bg-gray-300 rounded-lg overflow-hidden mb-4 shadow-md">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2481.995059264415!2d-0.1277582842266497!3d51.50735097963576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604ce3878d7c9%3A0x1a2f4ff87c1b9c3a!2sLondon%2C%20UK!5e0!3m2!1sen!2sus!4v1618931989871!5m2!1sen!2sus"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen={false}
-                loading="lazy"
-                title="Our Location Map"
-              ></iframe>
-            </div>
-            <div className="flex-1 text-center md:text-left">
-              <h2 className="font-heading text-2xl font-bold mb-2 text-primary flex items-center gap-2">
-                <MapPin className="w-6 h-6 text-accent" /> Visit Us
-              </h2>
-              <p className="text-lg text-foreground mb-2">
-                Parwan Design and Build
-                <br />
-                123 Example Street
-                <br />
-                London, AB1 2CD, UK
-              </p>
-              <p className="text-muted-foreground text-sm">
-                We&apos;re always happy to meet clients in person. Please call
-                or email to arrange a visit.
-              </p>
             </div>
           </div>
         </motion.section>
