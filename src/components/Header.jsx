@@ -21,8 +21,8 @@ export default function Header() {
           <Image
             src="/logo.png"
             alt="Parwan Design and Build"
-            width={150}
-            height={150}
+            width={120}
+            height={120}
           />
         </Link>
         {/* Desktop nav */}
