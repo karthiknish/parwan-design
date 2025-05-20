@@ -11,6 +11,8 @@ export default function AdminPage() {
   const [error, setError] = useState(null);
   const [submissions, setSubmissions] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [selectedEntry, setSelectedEntry] = useState(null);
+  const [entryLoading, setEntryLoading] = useState(false);
 
   useEffect(() => {
     if (
@@ -39,6 +41,24 @@ export default function AdminPage() {
     }
   }
 
+  async function fetchEntry(id) {
+    setEntryLoading(true);
+    setSelectedEntry(null);
+    try {
+      const res = await fetch(`/api/admin-submissions/${id}`);
+      const data = await res.json();
+      if (res.ok) {
+        setSelectedEntry(data.item);
+      } else {
+        setError(data.error || "Failed to fetch entry.");
+      }
+    } catch (err) {
+      setError("Failed to fetch entry.");
+    } finally {
+      setEntryLoading(false);
+    }
+  }
+
   async function handleLogin(e) {
     e.preventDefault();
     setError(null);
@@ -58,6 +78,7 @@ export default function AdminPage() {
     setUsername("");
     setPassword("");
     setSubmissions([]);
+    setSelectedEntry(null);
     if (typeof window !== "undefined") {
       localStorage.removeItem("adminLoggedIn");
     }
@@ -114,12 +135,13 @@ export default function AdminPage() {
                       <th className="p-2 border">Email</th>
                       <th className="p-2 border">Phone</th>
                       <th className="p-2 border">Message</th>
+                      <th className="p-2 border">Action</th>
                     </tr>
                   </thead>
                   <tbody>
                     {submissions.length === 0 ? (
                       <tr>
-                        <td colSpan={4} className="p-4 text-center">
+                        <td colSpan={5} className="p-4 text-center">
                           No submissions found.
                         </td>
                       </tr>
@@ -138,11 +160,67 @@ export default function AdminPage() {
                           <td className="p-2 border">
                             {item.fields.message?.["en-US"]}
                           </td>
+                          <td className="p-2 border text-center">
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => fetchEntry(item.sys.id)}
+                            >
+                              View
+                            </Button>
+                          </td>
                         </tr>
                       ))
                     )}
                   </tbody>
                 </table>
+              </div>
+            )}
+            {/* Entry Details Modal/Section */}
+            {selectedEntry && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+                <div className="bg-white dark:bg-card rounded-lg shadow-lg p-8 max-w-lg w-full relative">
+                  <button
+                    className="absolute top-2 right-2 text-xl font-bold text-gray-500 hover:text-primary"
+                    onClick={() => setSelectedEntry(null)}
+                    aria-label="Close"
+                  >
+                    ×
+                  </button>
+                  <h2 className="text-2xl font-bold mb-4 text-primary">
+                    Submission Details
+                  </h2>
+                  {entryLoading ? (
+                    <p>Loading...</p>
+                  ) : (
+                    <div className="space-y-2 text-sm">
+                      <div>
+                        <span className="font-semibold">Name:</span>{" "}
+                        {selectedEntry.fields.name?.["en-US"]}
+                      </div>
+                      <div>
+                        <span className="font-semibold">Email:</span>{" "}
+                        {selectedEntry.fields.email?.["en-US"]}
+                      </div>
+                      <div>
+                        <span className="font-semibold">Phone:</span>{" "}
+                        {selectedEntry.fields.phone?.["en-US"]}
+                      </div>
+                      <div>
+                        <span className="font-semibold">Message:</span>{" "}
+                        {selectedEntry.fields.message?.["en-US"]}
+                      </div>
+                      <div>
+                        <span className="font-semibold">Created At:</span>{" "}
+                        {selectedEntry.sys.createdAt}
+                      </div>
+                      <div>
+                        <span className="font-semibold">Entry ID:</span>{" "}
+                        {selectedEntry.sys.id}
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             )}
           </div>
