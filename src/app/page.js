@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import Head from "next/head";
 import {
@@ -13,6 +13,14 @@ import {
   MapPin,
   MessageSquare,
   Star,
+  Home as HomeIcon,
+  BedDouble,
+  Bath,
+  DoorOpen,
+  InspectionPanel,
+  Building2,
+  Wrench,
+  Store,
 } from "lucide-react";
 
 // Fun confetti SVG for extra excitement
@@ -79,6 +87,119 @@ const projects = [
   },
 ];
 
+const specialistServices = [
+  {
+    title: "Interiors",
+    description:
+      "Bespoke interior design and renovation, maximizing light, space, and style for every room in your home.",
+    icon: HomeIcon,
+    cardClass:
+      "bg-gradient-to-br from-primary/10 via-accent/10 to-muted border-accent/10",
+    borderClass: "border-2",
+    iconClass: "text-primary animate-pulse",
+    delay: 0.1,
+  },
+  {
+    title: "Kitchens",
+    description:
+      "Bespoke kitchen design and installation, tailored to your lifestyle and taste, with quality fittings and finishes.",
+    icon: Wrench,
+    cardClass:
+      "bg-gradient-to-br from-primary/10 via-blue-100 to-muted border-primary/10",
+    borderClass: "border-2",
+    iconClass: "text-primary animate-spin-slow",
+    delay: 0.15,
+  },
+  {
+    title: "Bathrooms",
+    description:
+      "Transform your bathroom with modern design, luxury fittings, and flawless installation from our experienced team.",
+    icon: Bath,
+    cardClass:
+      "bg-gradient-to-br from-pink-100 via-primary/10 to-muted border-pink-200",
+    borderClass: "border-2",
+    iconClass: "text-primary",
+    delay: 0.2,
+  },
+  {
+    title: "Bedrooms",
+    description:
+      "Custom bedroom solutions, from fitted wardrobes to complete refurbishments, for comfort and style.",
+    icon: BedDouble,
+    cardClass:
+      "bg-gradient-to-br from-purple-100 via-primary/10 to-muted border-purple-200",
+    borderClass: "border-2",
+    iconClass: "text-primary animate-pulse",
+    delay: 0.25,
+  },
+  {
+    title: "Tiles",
+    description:
+      "From kitchen splashbacks to bathroom floors, our team supplies and fits tiles for any space, large or small, with expert precision and style.",
+    icon: InspectionPanel,
+    cardClass:
+      "bg-gradient-to-br from-green-100 via-primary/10 to-muted border-green-200",
+    borderClass: "border-2",
+    iconClass: "text-primary animate-spin-slow",
+    delay: 0.3,
+  },
+  {
+    title: "Exteriors",
+    description:
+      "Enhance your home's curb appeal with our exterior renovation and landscaping services.",
+    icon: Building2,
+    cardClass:
+      "bg-gradient-to-br from-yellow-100 via-primary/10 to-muted border-yellow-200",
+    borderClass: "border-2",
+    iconClass: "text-primary",
+    delay: 0.35,
+  },
+  {
+    title: "Windows & Doors",
+    description:
+      "Upgrade your home with our high-quality windows and doors, expertly installed for security, energy efficiency, and curb appeal.",
+    icon: DoorOpen,
+    cardClass:
+      "bg-gradient-to-br from-blue-100 via-primary/10 to-muted border-blue-200",
+    borderClass: "border-2",
+    iconClass: "text-primary animate-pulse",
+    delay: 0.4,
+  },
+  {
+    title: "Commercial",
+    description:
+      "Comprehensive commercial building services for offices, retail, and more—fit-out, refurbishment, and maintenance.",
+    icon: Building2,
+    cardClass:
+      "bg-gradient-to-br from-rose-100 via-primary/10 to-muted border-rose-200",
+    borderClass: "border-2",
+    iconClass: "text-primary animate-spin-slow",
+    delay: 0.45,
+  },
+  {
+    title: "Supply and Fitting",
+    description:
+      "Professional supply and expert fitting of a wide range of home and commercial products, ensuring quality and a perfect finish every time.",
+    icon: Wrench,
+    cardClass:
+      "bg-gradient-to-br from-emerald-100 via-primary/10 to-muted border-emerald-200",
+    borderClass: "border-2",
+    iconClass: "text-primary",
+    delay: 0.5,
+  },
+  {
+    title: "Shop Fittings",
+    description:
+      "Custom shop fitting solutions for retail and commercial spaces, designed and installed to maximize functionality and visual appeal.",
+    icon: Store,
+    cardClass:
+      "bg-gradient-to-br from-green-100 via-primary/10 to-muted border-green-200",
+    borderClass: "border-2",
+    iconClass: "text-primary animate-pulse",
+    delay: 0.55,
+  },
+];
+
 export default function Home() {
   return (
     <>
@@ -99,9 +220,10 @@ export default function Home() {
             transition={{ duration: 1, ease: "easeOut" }}
             className="absolute inset-0 h-[70vh] w-full"
           >
-            <img
+            <Image
               src="https://images.pexels.com/photos/5644367/pexels-photo-5644367.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
               alt="Parwan Design and Build Hero"
+              fill
               style={{ objectFit: "cover" }}
               className="object-cover w-full h-full"
               priority
@@ -356,197 +478,38 @@ export default function Home() {
             <p className="text-center text-muted-foreground mb-10">
               We offer a wide range of services to meet your needs.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {/* Interiors */}
-              <div className="flex flex-col items-center text-center p-6 bg-muted rounded-xl shadow-lg">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-12 h-12 text-primary mb-3"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <rect x="4" y="4" width="16" height="16" rx="3" />
-                  <rect x="8" y="8" width="8" height="8" rx="2" />
-                </svg>
-                <h3 className="font-heading font-semibold text-xl mb-2">
-                  Interiors
-                </h3>
-                <p className="font-body text-muted-foreground mb-4">
-                  Bespoke interior design and renovation, maximizing light,
-                  space, and style for every room in your home.
-                </p>
-                <Button variant="outline" asChild className="mt-auto">
-                  <a href="/contact">Enquire about Interiors</a>
-                </Button>
-              </div>
-              {/* Kitchens */}
-              <div className="flex flex-col items-center text-center p-6 bg-muted rounded-xl shadow-lg">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-12 h-12 text-primary mb-3"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <rect x="3" y="7" width="18" height="10" rx="2" />
-                  <rect x="7" y="3" width="10" height="4" rx="1" />
-                </svg>
-                <h3 className="font-heading font-semibold text-xl mb-2">
-                  Kitchens
-                </h3>
-                <p className="font-body text-muted-foreground mb-4">
-                  Bespoke kitchen design and installation, tailored to your
-                  lifestyle and taste, with quality fittings and finishes.
-                </p>
-                <Button variant="outline" asChild className="mt-auto">
-                  <a href="/contact">Enquire about Kitchens</a>
-                </Button>
-              </div>
-              {/* Bathrooms */}
-              <div className="flex flex-col items-center text-center p-6 bg-muted rounded-xl shadow-lg">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-12 h-12 text-primary mb-3"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <rect x="3" y="7" width="18" height="10" rx="2" />
-                  <rect x="7" y="17" width="10" height="4" rx="1" />
-                </svg>
-                <h3 className="font-heading font-semibold text-xl mb-2">
-                  Bathrooms
-                </h3>
-                <p className="font-body text-muted-foreground mb-4">
-                  Transform your bathroom with modern design, luxury fittings,
-                  and flawless installation from our experienced team.
-                </p>
-                <Button variant="outline" asChild className="mt-auto">
-                  <a href="/contact">Enquire about Bathrooms</a>
-                </Button>
-              </div>
-              {/* Bedrooms */}
-              <div className="flex flex-col items-center text-center p-6 bg-muted rounded-xl shadow-lg">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-12 h-12 text-primary mb-3"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <rect x="4" y="8" width="16" height="10" rx="2" />
-                  <rect x="8" y="4" width="8" height="4" rx="1" />
-                </svg>
-                <h3 className="font-heading font-semibold text-xl mb-2">
-                  Bedrooms
-                </h3>
-                <p className="font-body text-muted-foreground mb-4">
-                  Custom bedroom solutions, from fitted wardrobes to complete
-                  refurbishments, for comfort and style.
-                </p>
-                <Button variant="outline" asChild className="mt-auto">
-                  <a href="/contact">Enquire about Bedrooms</a>
-                </Button>
-              </div>
-              {/* Tiles */}
-              <div className="flex flex-col items-center text-center p-6 bg-muted rounded-xl shadow-lg">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-12 h-12 text-primary mb-3"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <rect x="3" y="3" width="7" height="7" rx="1.5" />
-                  <rect x="14" y="3" width="7" height="7" rx="1.5" />
-                  <rect x="14" y="14" width="7" height="7" rx="1.5" />
-                  <rect x="3" y="14" width="7" height="7" rx="1.5" />
-                </svg>
-                <h3 className="font-heading font-semibold text-xl mb-2">
-                  Tiles
-                </h3>
-                <p className="font-body text-muted-foreground mb-4">
-                  From kitchen splashbacks to bathroom floors, our team supplies
-                  and fits tiles for any space, large or small, with expert
-                  precision and style.
-                </p>
-                <Button variant="outline" asChild className="mt-auto">
-                  <a href="/contact">Enquire about Tiles</a>
-                </Button>
-              </div>
-              {/* Exteriors */}
-              <div className="flex flex-col items-center text-center p-6 bg-muted rounded-xl shadow-lg">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-12 h-12 text-primary mb-3"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <rect x="3" y="12" width="18" height="8" rx="2" />
-                  <rect x="7" y="4" width="10" height="8" rx="2" />
-                </svg>
-                <h3 className="font-heading font-semibold text-xl mb-2">
-                  Exteriors
-                </h3>
-                <p className="font-body text-muted-foreground mb-4">
-                  Enhance your home&apos;s curb appeal with our exterior
-                  renovation and landscaping services.
-                </p>
-                <Button variant="outline" asChild className="mt-auto">
-                  <a href="/contact">Enquire about Exteriors</a>
-                </Button>
-              </div>
-              {/* Windows & Doors */}
-              <div className="flex flex-col items-center text-center p-6 bg-muted rounded-xl shadow-lg">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-12 h-12 text-primary mb-3"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <rect x="4" y="3" width="16" height="18" rx="2" />
-                  <rect x="8" y="3" width="2" height="18" />
-                  <rect x="14" y="3" width="2" height="18" />
-                </svg>
-                <h3 className="font-heading font-semibold text-xl mb-2">
-                  Windows & Doors
-                </h3>
-                <p className="font-body text-muted-foreground mb-4">
-                  Upgrade your home with our high-quality windows and doors,
-                  expertly installed for security, energy efficiency, and curb
-                  appeal.
-                </p>
-                <Button variant="outline" asChild className="mt-auto">
-                  <a href="/contact">Enquire about Windows & Doors</a>
-                </Button>
-              </div>
-              {/* Commercial */}
-              <div className="flex flex-col items-center text-center p-6 bg-muted rounded-xl shadow-lg">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-12 h-12 text-primary mb-3"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <rect x="3" y="7" width="18" height="10" rx="2" />
-                  <rect x="7" y="3" width="10" height="4" rx="1" />
-                  <rect x="7" y="17" width="10" height="4" rx="1" />
-                </svg>
-                <h3 className="font-heading font-semibold text-xl mb-2">
-                  Commercial
-                </h3>
-                <p className="font-body text-muted-foreground mb-4">
-                  Comprehensive commercial building services for offices,
-                  retail, and more—fit-out, refurbishment, and maintenance.
-                </p>
-                <Button variant="outline" asChild className="mt-auto">
-                  <a href="/contact">Enquire about Commercial</a>
-                </Button>
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+              {specialistServices.map((service, idx) => {
+                const Icon = service.icon;
+                return (
+                  <motion.div
+                    key={service.title}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    whileHover={{
+                      boxShadow: `0 8px 32px 0 rgba(16, 185, 129, 0.18)`,
+                    }}
+                    transition={{ duration: 0.5, delay: service.delay }}
+                    viewport={{ once: true }}
+                    className={`flex flex-col items-center text-center p-6 rounded-xl shadow-lg ${service.cardClass} ${service.borderClass}`}
+                  >
+                    <Icon className={`w-12 h-12 mb-3 ${service.iconClass}`} />
+                    <h3 className="font-heading font-semibold text-xl mb-2">
+                      {service.title}
+                    </h3>
+                    <p className="font-body text-muted-foreground mb-4">
+                      {service.description}
+                    </p>
+                    <Button
+                      variant="outline"
+                      asChild
+                      className="mt-auto font-heading text-xs font-bold text-wrap break-words whitespace-normal py-4 px-4 "
+                    >
+                      <Link href="/contact">Enquire about {service.title}</Link>
+                    </Button>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </motion.section>
@@ -701,7 +664,7 @@ export default function Home() {
                   expectations. Highly recommended!&quot;
                 </p>
                 <span className="block text-lg text-accent font-bold tracking-wider">
-                  - JAG DHILLON -
+                  - OLIVER SMITH -
                 </span>
               </motion.div>
               <motion.div
@@ -721,7 +684,7 @@ export default function Home() {
                   space! The attention to detail was incredible.&quot;
                 </p>
                 <span className="block text-lg text-accent font-bold tracking-wider">
-                  - S. KUMAR -
+                  - J. WILLIAMS -
                 </span>
               </motion.div>
             </div>
