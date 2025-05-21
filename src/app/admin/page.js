@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { motion } from "framer-motion";
@@ -7,22 +7,16 @@ import { motion } from "framer-motion";
 export default function AdminPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(
+    typeof window !== "undefined" &&
+      localStorage.getItem("adminLoggedIn") === "true"
+  );
   const [error, setError] = useState(null);
   const [submissions, setSubmissions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedEntry, setSelectedEntry] = useState(null);
   const [entryLoading, setEntryLoading] = useState(false);
-
-  useEffect(() => {
-    if (
-      typeof window !== "undefined" &&
-      localStorage.getItem("adminLoggedIn") === "true"
-    ) {
-      setLoggedIn(true);
-      fetchSubmissions();
-    }
-  }, []);
+  const [hasFetched, setHasFetched] = useState(false);
 
   async function fetchSubmissions() {
     setLoading(true);
@@ -38,6 +32,7 @@ export default function AdminPage() {
       setError("Failed to fetch submissions.");
     } finally {
       setLoading(false);
+      setHasFetched(true);
     }
   }
 
@@ -79,9 +74,15 @@ export default function AdminPage() {
     setPassword("");
     setSubmissions([]);
     setSelectedEntry(null);
+    setHasFetched(false);
     if (typeof window !== "undefined") {
       localStorage.removeItem("adminLoggedIn");
     }
+  }
+
+  // If already logged in (from localStorage), fetch submissions on first render after login
+  if (loggedIn && !hasFetched && typeof window !== "undefined") {
+    fetchSubmissions();
   }
 
   return (
